@@ -7,7 +7,6 @@ import { getBalance } from "../web3functions"
 
 export default function Money({
     context,
-    setContext
 }: {
     context: User | null,
     setContext: Function

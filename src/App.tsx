@@ -1,6 +1,6 @@
 
 import './css/App.css'
-import { Route, Routes, useSearchParams } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import Dashboard from './components/Dashboard.tsx'
 import NotFound from './components/NotFound.tsx'
 import { User } from './types.ts'
@@ -14,10 +14,6 @@ export default function App() {
     const [context, setContext] = useState<User | null>(null)
     return (
             <>
-                <div>
-
-                </div>
-
 
                 <Routes>
                     <Route path='/' element={<LandingPage context={context} setContext={setContext} />} />

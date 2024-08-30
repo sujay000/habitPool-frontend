@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom"
 import { Button } from "./Button"
-import { TaskType, TaskStatus, User } from "../types";
+import { TaskType, User } from "../types";
 import { useEffect, useState } from "react";
 import Modal from "./Modal";
 import CreateTask from "./CreateTask";
@@ -9,7 +9,6 @@ import Tasks from "./Tasks";
 
 function Dashboard({
     context,
-    setContext
 }: {
     context: User|null
     setContext: Function

@@ -5,7 +5,6 @@ import { Button } from "./Button"
 import { User } from "../types"
 
 export default function LandingPage({
-    context,
     setContext
 }: {
     context: User|null
