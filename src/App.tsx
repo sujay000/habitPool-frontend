@@ -1,33 +1,32 @@
-import './App.css'
-import { useGoogleLogin } from '@react-oauth/google'
-import { VITE_BE_URL } from './config'
 
-function App() {
-    const login = useGoogleLogin({
-        onSuccess: async (codeResponse) => {
-            const url = VITE_BE_URL + '/auth'
-            const response = await fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                credentials: 'include',
-                body: JSON.stringify(codeResponse),
-            })
-            const data = await response.json()
-            console.log(data)
-        },
-    })
+import './css/App.css'
+import { Route, Routes, useSearchParams } from 'react-router-dom'
+import Dashboard from './components/Dashboard.tsx'
+import NotFound from './components/NotFound.tsx'
+import { User } from './types.ts'
+import { useState } from 'react'
+import LandingPage from './components/LandingPage.tsx'
+import Money from './pages/Money.tsx'
 
+
+
+export default function App() {
+    const [context, setContext] = useState<User | null>(null)
     return (
-        <div>
-            hello world
-            <button className="border-black border-2" onClick={() => login()}>
-                Sign in with Google 🚀
-            </button>
-            <button className="border-black border-2 rounded-md px-[1rem] py-[0.5rem]">Create a account</button>
-        </div>
+            <>
+                <div>
+
+                </div>
+
+
+                <Routes>
+                    <Route path='/' element={<LandingPage context={context} setContext={setContext} />} />
+                    <Route path='/dashboard' element={<Dashboard context={context} setContext={setContext} />} />
+                    <Route path='/money' element={<Money context={context} setContext={setContext} />} />
+                    <Route path="*" element={<NotFound />} />
+                </Routes>
+            
+            </>
     )
 }
 
-export default App
