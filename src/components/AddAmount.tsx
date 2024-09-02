@@ -16,7 +16,8 @@ export default function AddAmount({
 
     const addAmountWrapper = async() => {
         const res : ResType = await addAmount(task.taskId, amount);
-
+        console.log("res", res);
+        
         if (res.valid) {
             setTrigger((prev: any) => !prev);
             onClose();

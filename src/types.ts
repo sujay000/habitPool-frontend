@@ -19,6 +19,7 @@ export enum Provider {
     email?: string;
     publicKey: string;
     balance: number;
+    picture: string;
     provider: Provider;
     tasks?: TaskType[]; // Relation to TaskParticipant
     createdTasks?: TaskType[]; // Relation to Task

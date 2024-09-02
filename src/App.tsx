@@ -7,6 +7,7 @@ import { User } from './types.ts'
 import { useState } from 'react'
 import LandingPage from './components/LandingPage.tsx'
 import Money from './pages/Money.tsx'
+import { Toaster } from 'sonner'
 
 
 
@@ -14,7 +15,7 @@ export default function App() {
     const [context, setContext] = useState<User | null>(null)
     return (
             <>
-
+                <Toaster richColors={true} />
                 <Routes>
                     <Route path='/' element={<LandingPage context={context} setContext={setContext} />} />
                     <Route path='/dashboard' element={<Dashboard context={context} setContext={setContext} />} />

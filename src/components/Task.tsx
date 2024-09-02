@@ -5,6 +5,7 @@ import Modal from "./Modal";
 import AddParticipant from "./AddParticipant";
 import AddAmount from "./AddAmount";
 import MarkDone from "./MarkDone";
+import Time from "./Time";
 
 export default function Task({
     task,
@@ -25,8 +26,13 @@ export default function Task({
     const openModalDone = () => setIsModalOpenDone(true);
     const closeModalDone = () => setIsModalOpenDone(false);
 
+    for (const [key, value] of Object.entries(task)) {
+        console.log(key, value)
+        console.log(typeof value)
+    }
+
     return (
-        <div className="p-[2rem] border-[2px] border-gray-300 rounded-md max-w-[1000px]">
+        <div className="p-[2rem] border-[2px] border-gray-300 rounded-md w-full">
             <div key={task.taskId}>
                 Name: {task.name}
             </div>
@@ -65,6 +71,10 @@ export default function Task({
                         JSON.stringify(result)
                     ))
                 }
+            </div>
+            
+            <div>
+                TimeLeft: <Time time={task.time} />
             </div>
 
 
